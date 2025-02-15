@@ -55,6 +55,6 @@ recruitment = WebDriverWait(driver, 15).until(
 )
 recruitment.click()
 
-time.sleep(10)
+time.sleep(20)
 
 driver.quit()
