@@ -4,12 +4,14 @@ from selenium.webdriver.common.by import By
 # from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-service = Service(executable_path="chromedriver.exe")
+# service = Service(executable_path="chromedriver.exe")
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
-driver.get("https://develop-hqzen.cxrole.com")
+driver.get("https://staging-hqzen.cxrole.com")
 assert 'HQZen' in driver.title
 
 signin = WebDriverWait(driver, 10).until(
