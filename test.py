@@ -48,7 +48,7 @@ citbutton = WebDriverWait(driver, 15).until(
 citbutton.click()
 
 bposeatsbtn = WebDriverWait(driver, 15).until(
-    EC.element_to_be_clickable((By.XPATH, "//a[@class='launch-button squircle']"))
+    EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, '/company/10/workforce/49/overview/8722')]"))
 )
 bposeatsbtn.click()
 
@@ -56,6 +56,17 @@ recruitment = WebDriverWait(driver, 15).until(
      EC.element_to_be_clickable((By.XPATH, "//i[@class='mdi mdi-briefcase-search-outline']"))
 )
 recruitment.click()
+
+searchjobs = WebDriverWait(driver, 15).until(
+    EC.presence_of_element_located((By.XPATH, '//*[@type="text" and @placeholder="Search job posting"]'))
+)
+searchjobs.send_keys('AI Engineer')
+
+components = WebDriverWait(driver, 15).until(
+    EC.presence_of_all_elements_located((By.XPATH, '//div[@class="posting"]'))
+)
+first_component = components[0]
+first_component.click()
 
 time.sleep(20)
 
